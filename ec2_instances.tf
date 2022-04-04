@@ -3,6 +3,7 @@ resource "aws_instance" "webserver" {
   key_name      = var.key_name
   instance_type = var.instance_type
   subnet_id     = aws_subnet.awslab-subnet-public.id
+  user_data     = file("user_data.sh")
 
   root_block_device {
     volume_size = 8
@@ -39,6 +40,7 @@ resource "aws_instance" "database" {
   key_name      = var.key_name
   instance_type = var.instance_type
   subnet_id     = aws_subnet.awslab-subnet-private.id
+  user_data     = file("user_data.sh")
 
   root_block_device {
     volume_size = 8
