@@ -5,6 +5,15 @@ terraform {
     bucket = "awslab-cocus"
     key    = "awslab.tfstate"
     region = "us-east-1"
-    profile = "default"
   }
+}
+
+resource "aws_s3_object" "keypair" {
+  bucket = "awslab-cocus"
+  key    = "awslabkey.pem"
+  source = local_file.saveKey.filename
+
+  depends_on = [
+    local_file.saveKey
+  ]
 }

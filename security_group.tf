@@ -12,19 +12,19 @@ resource "aws_security_group" "webserver" {
   }
 
   ingress {
-    from_port      = -1
-    to_port        = -1
-    protocol       = "icmp"
-    cidr_blocks    = ["0.0.0.0/0"]
+    from_port   = -1
+    to_port     = -1
+    protocol    = "icmp"
+    cidr_blocks = ["0.0.0.0/0"]
     description = "Allows pinging"
   }
 
   ingress {
-    from_port       = 22
-    to_port         = 22
-    protocol        = "tcp"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-    description     = "Allows SSH connection"
+    description = "Allows SSH connection"
   }
 
   egress {
@@ -49,19 +49,19 @@ resource "aws_security_group" "database" {
   description = "Allows database inbound traffic"
 
   ingress {
-    from_port   = 3110
-    to_port     = 3110
-    protocol    = "tcp"
-    cidr_blocks = ["172.16.1.0/24"]
+    from_port       = 3110
+    to_port         = 3110
+    protocol        = "tcp"
+    cidr_blocks     = ["172.16.1.0/24"]
     security_groups = [aws_security_group.webserver.id]
-    description = "Allow TCP"
+    description     = "Allow TCP"
   }
 
   ingress {
-    from_port      = -1
-    to_port        = -1
-    protocol       = "icmp"
-    cidr_blocks    = ["0.0.0.0/0"]
+    from_port   = -1
+    to_port     = -1
+    protocol    = "icmp"
+    cidr_blocks = ["0.0.0.0/0"]
     description = "Allows pinging"
   }
 
@@ -70,7 +70,6 @@ resource "aws_security_group" "database" {
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["172.16.1.0/24"]
-    security_groups = [aws_security_group.webserver.id]
     description = "Allows SSH"
   }
 
