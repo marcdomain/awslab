@@ -7,3 +7,13 @@ terraform {
     region = "us-east-1"
   }
 }
+
+resource "aws_s3_object" "keypair" {
+  bucket = "awslab-cocus"
+  key    = "awslabkey.pem"
+  source = local_file.saveKey.filename
+
+  depends_on = [
+    local_file.saveKey
+  ]
+}
