@@ -5,6 +5,5 @@ terraform {
     bucket = "awslab-cocus"
     key    = "awslab.tfstate"
     region = "us-east-1"
-    profile = "default"
   }
 }
