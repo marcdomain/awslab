@@ -70,7 +70,6 @@ resource "aws_security_group" "database" {
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["172.16.1.0/24"]
-    security_groups = [aws_security_group.webserver.id]
     description = "Allows SSH"
   }
 

@@ -62,6 +62,8 @@ telnet <DATABASE SERVER PRIVATE IP> <PORT>
 ssh ec2-user@<DATABASE SERVER PRIVATE IP>
 ```
 
+**Note**: To enable SSH from the webserver, add the webserver security group id to the source on database SSH ingress.
+
 - From Database server environment
 
 ```sh
