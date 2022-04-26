@@ -1,7 +1,7 @@
-output "awslab-subnet-public-ip" {
-  value = aws_instance.webserver.public_ip
+output "webserver_public_ip" {
+  value = module.webserver.subnet_public_ip
 }
 
-output "awslab-subnet-private-ip" {
-  value = aws_instance.database.private_ip
+output "database_private_ip" {
+  value = module.database.subnet_private_ip
 }

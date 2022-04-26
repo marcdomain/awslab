@@ -32,7 +32,7 @@ terraform plan
 terraform apply
 ```
 
-## Test connections using the output value of `awslab-subnet-public-ip` and `awslab-subnet-private-ip` respectively
+## Test connections using the output value of `subnet-public-ip` and `subnet-private-ip` respectively
 
 - From the internet: Only the webserver connections are successful
 
@@ -62,7 +62,7 @@ telnet <DATABASE SERVER PRIVATE IP> <PORT>
 ssh ec2-user@<DATABASE SERVER PRIVATE IP>
 ```
 
-**Note**: To enable SSH from the webserver, add the webserver security group id to the source on database SSH ingress.
+**Note**: To enable SSH from the webserver, copy the ssh key to the root of webserver and add the webserver security group id to the source on the database SSH ingress.
 
 - From Database server environment
 
