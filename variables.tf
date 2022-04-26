@@ -1,23 +1,19 @@
-variable "ami" {
-  default = "ami-0c02fb55956c7d316"
-}
-
-variable "instance_type" {
-  default = "t2.micro"
-}
-
 variable "region" {
+  type    = string
   default = "us-east-1"
 }
 
+variable "project_name" {
+  type = string
+  default = "awslab"
+}
+
+variable "vpc_cidr" {
+  type = string
+  default = "172.16.0.0/23"
+}
+
 variable "key_path" {
+  type    = string
   default = "."
-}
-
-variable "key_name" {
-  default = "awslabkey"
-}
-
-variable "user" {
-  default = "ec2-user"
 }

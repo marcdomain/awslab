@@ -4,13 +4,13 @@ resource "tls_private_key" "private-key" {
 }
 
 resource "aws_key_pair" "keypair" {
-  key_name   = var.key_name
+  key_name   = var.project_name
   public_key = tls_private_key.private-key.public_key_openssh
   depends_on = [tls_private_key.private-key]
 }
 
 resource "local_file" "saveKey" {
   content         = tls_private_key.private-key.private_key_pem
-  filename        = "${var.key_path}/${var.key_name}.pem"
+  filename        = "${var.key_path}/${var.project_name}.pem"
   file_permission = 400
 }
